@@ -32,9 +32,9 @@ h2 { font: 800 clamp(1.9rem, 4vw, 3.1rem)/1.05 Georgia, "Times New Roman", serif
 .sources a { padding: 8px 12px; background: var(--white); border: 1px solid var(--line); font-size: .86rem; font-weight: 700; text-decoration: none; }
 .workspace { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: start; padding-block: 70px; }
 .card { padding: 30px; background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow); }
-.composer > label:first-child strong, .composer > label:first-child small { display: block; }
-.composer > label:first-child small { margin-top: 3px; color: var(--muted); }
-textarea { width: 100%; min-height: 120px; margin: 12px 0 28px; padding: 14px; color: var(--night); background: #fbfaf7; border: 1px solid var(--line); resize: vertical; }
+.composer > label strong, .composer > label small { display: block; }
+.composer > label small { margin-top: 3px; color: var(--muted); }
+textarea { width: 100%; min-height: 112px; margin: 12px 0 28px; padding: 14px; color: var(--night); background: #fbfaf7; border: 1px solid var(--line); resize: vertical; }
 textarea:focus-visible, input:focus-visible + span, .button:focus-visible { outline: 3px solid var(--copper); outline-offset: 3px; }
 fieldset { display: grid; gap: 10px; margin: 0; padding: 0; border: 0; }
 legend { width: 100%; margin-bottom: 12px; font: 800 1.25rem/1.25 Georgia, "Times New Roman", serif; }

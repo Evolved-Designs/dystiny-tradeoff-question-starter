@@ -5,16 +5,18 @@ export const lensQuestions = Object.freeze({
   people: 'Who gains access or capability, who may be excluded or harmed, how reversible are the impacts, and which affected-group and primary-source evidence should be compared?'
 });
 
-export function buildQuestion(lens = 'value', topic = '') {
+export function buildQuestion(lens = 'value', topic = '', changeTest = '') {
   const base = lensQuestions[lens] ?? lensQuestions.value;
   const clean = String(topic).trim().replace(/\s+/g, ' ').slice(0, 220);
-  return clean ? `${base} Decision to examine: ${clean}.` : base;
+  const cleanChangeTest = String(changeTest).trim().replace(/\s+/g, ' ').slice(0, 180);
+  const subject = clean ? `${base} Decision to examine: ${clean}.` : base;
+  return cleanChangeTest ? `${subject} Evidence that would change the decision: ${cleanChangeTest}.` : subject;
 }
 
-export function buildDystinyUrl(lens = 'value', topic = '') {
+export function buildDystinyUrl(lens = 'value', topic = '', changeTest = '') {
   const valid = Object.hasOwn(lensQuestions, lens) ? lens : 'value';
   const url = new URL('https://dystiny.com/answer/');
-  url.searchParams.set('q', buildQuestion(valid, topic));
+  url.searchParams.set('q', buildQuestion(valid, topic, changeTest));
   url.searchParams.set('utm_source', 'github_pages');
   url.searchParams.set('utm_medium', 'owned_research');
   url.searchParams.set('utm_campaign', 'tradeoff_question_starter');
@@ -26,6 +28,7 @@ function init() {
   const form = document.querySelector('[data-builder]');
   if (!form) return;
   const topic = document.querySelector('#topic');
+  const changeTest = document.querySelector('#change-test');
   const radios = [...form.querySelectorAll('input[name="lens"]')];
   const question = document.querySelector('[data-question]');
   const open = document.querySelector('[data-open]');
@@ -33,8 +36,8 @@ function init() {
   const lens = () => radios.find((radio) => radio.checked)?.value ?? 'value';
 
   function render() {
-    question.textContent = buildQuestion(lens(), topic.value);
-    open.href = buildDystinyUrl(lens(), topic.value);
+    question.textContent = buildQuestion(lens(), topic.value, changeTest.value);
+    open.href = buildDystinyUrl(lens(), topic.value, changeTest.value);
   }
 
   async function copyQuestion() {
@@ -45,6 +48,7 @@ function init() {
 
   radios.forEach((radio) => radio.addEventListener('change', render));
   topic.addEventListener('input', render);
+  changeTest.addEventListener('input', render);
   copy.addEventListener('click', () => copyQuestion().catch(() => { copy.textContent = 'Copy unavailable'; }));
   render();
 }

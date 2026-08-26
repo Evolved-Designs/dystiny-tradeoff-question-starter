@@ -75,6 +75,9 @@
         <label for="topic"><strong>Decision or claim to explore</strong><small>Optional. Keep private, personal, and sensitive information out.</small></label>
         <textarea id="topic" maxlength="220" placeholder="Example: Use AI to generate and publish WordPress pages faster"></textarea>
 
+        <label for="change-test"><strong>What evidence would change the decision?</strong><small>Optional. Name a measurable threshold, comparison, or failure signal.</small></label>
+        <textarea id="change-test" maxlength="180" placeholder="Example: A measured accessibility regression or maintenance cost above the current process"></textarea>
+
         <fieldset>
           <legend>Which tradeoff needs evidence first?</legend>
           <label><input type="radio" name="lens" value="value" checked><span><strong>Benefit and shifted cost</strong><small>Compare the promised gain with the work, risk, or burden moved elsewhere.</small></span></label>
@@ -82,7 +85,7 @@
           <label><input type="radio" name="lens" value="certainty"><span><strong>Accuracy and uncertainty</strong><small>Separate measured quality from plausible output, confidence, and missing evidence.</small></span></label>
           <label><input type="radio" name="lens" value="people"><span><strong>Access and uneven impact</strong><small>Identify who benefits, who may be excluded, and which harms are reversible.</small></span></label>
         </fieldset>
-        <p class="privacy">Nothing is saved or sent from this page. Dystiny receives the prepared question only after you deliberately open it.</p>
+        <p class="privacy">Nothing is saved or sent from this page. Dystiny receives the prepared question and change test only after you deliberately open it.</p>
       </form>
 
       <aside class="card result" aria-live="polite">
