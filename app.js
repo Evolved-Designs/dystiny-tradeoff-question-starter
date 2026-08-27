@@ -17,7 +17,7 @@ export function buildDystinyUrl(lens = 'value', topic = '', changeTest = '') {
   const valid = Object.hasOwn(lensQuestions, lens) ? lens : 'value';
   const url = new URL('https://dystiny.com/answer/');
   url.searchParams.set('q', buildQuestion(valid, topic, changeTest));
-  url.searchParams.set('utm_source', 'github_pages');
+  url.searchParams.set('utm_source', 'github');
   url.searchParams.set('utm_medium', 'owned_research');
   url.searchParams.set('utm_campaign', 'tradeoff_question_starter');
   url.searchParams.set('utm_content', `lens_${valid}`);

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://evolved-designs.github.io/dystiny-tradeoff-question-starter/sitemap.xml
+Sitemap: https://dystiny.com/research-paths/uncertainty/sitemap.xml
